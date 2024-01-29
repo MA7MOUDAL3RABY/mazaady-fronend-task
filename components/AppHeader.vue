@@ -7,21 +7,25 @@
         </template>
 
         <v-app-bar-title>
-          <NuxtImg class="logo w-full" src="/assets/logo.svg" />
+          <NuxtImg class="app__logo" src="/assets/logo.svg" />
         </v-app-bar-title>
 
         <v-spacer></v-spacer>
 
         <v-btn icon>
-          <NuxtImg src="/assets/icons/magnify.svg" />
+          <NuxtImg class="app__icon" src="/assets/icons/magnify.svg" />
         </v-btn>
 
         <v-btn icon>
-          <NuxtImg src="/assets/icons/bill.svg" />
+          <NuxtImg class="app__icon" src="/assets/icons/bill.svg" />
         </v-btn>
 
         <v-btn icon>
           <v-icon>mdi-dots-vertical</v-icon>
+        </v-btn>
+
+        <v-btn class="gradient-btn">
+          <NuxtImg class="app__icon__small" src="/assets/icons/plus.svg" />Add new product
         </v-btn>
       </v-app-bar>
     </v-layout>

@@ -1,0 +1,16 @@
+.app {
+	&__logo {
+		min-width: 108px;
+	}
+
+	&__icon {
+		width: 24px;
+		height: auto;
+
+		&__small {
+			width: 18px;
+			height: auto;
+			margin: 0 0.5px;
+		}
+	}
+}

@@ -1,4 +1,12 @@
-.gradient-btn {
-	background: linear-gradient(90deg, #D20653 0%, #FF951D 100%);
-	color: #fff;
+.app-content {
+	.v-btn {
+		min-height: 40px;
+		border-radius: 10px;
+	}
+
+	.gradient-btn {
+		background: linear-gradient(90deg, #D20653 0%, #FF951D 100%);
+		color: #fff;
+
+	}
 }
