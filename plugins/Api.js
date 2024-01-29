@@ -1,4 +1,4 @@
-export default (app) => {
+export default defineNuxtPlugin((app) => {
 	app.provide('Api', async function Api(
 		method = 'get',
 		uri,
@@ -30,4 +30,4 @@ export default (app) => {
 			app.store.commit('utils/load', false);
 		}
 	});
-};
+});

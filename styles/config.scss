@@ -3,7 +3,9 @@ $colors: (
 	orange: $orange,
 	white: $white,
 	black: $black,
+	gray_1: $gray_1,
 	gray_3: $gray_3,
+	dark_1: $dark_1,
 );
 
 $fonts: (
@@ -59,21 +61,21 @@ $color in $colors {
 
 @each $name,
 $value in $opacities {
-	.opacity-#{$name} {
+	#{'.opacity-' + $name} {
 		opacity: $value;
 	}
 }
 
 @each $name,
 $size in $fonts {
-	.font-#{$name} {
+	#{'.font-' + $name} {
 		font-size: #{$size}px;
 	}
 }
 
 @each $name,
 $weight in $weights {
-	.fw-#{$name} {
+	#{'.font-weight-' + $name} {
 		font-weight: #{$weight};
 	}
 }

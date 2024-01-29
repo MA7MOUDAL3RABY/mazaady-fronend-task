@@ -30,31 +30,6 @@ export default defineNuxtConfig({
 	// 	defaultLocale: 'en',
 	// },
 	vuetify: {
-		// lang: {
-		// 	locales: {
-		// 		ar,
-		// 		en
-		// 	},
-		// 	current: process.env.defualtLanguage
-		// },
-		// customVariables: ['@/style/variables.scss'],
-		treeShake: true,
-		theme: {
-			options: {
-				customProperties: false
-			},
-			dark: false,
-			themes: {
-				light: {
-					primary: '#D20653',
-					secondary: '#FFCB04',
-					accent: '#FFCB04',
-					accentlight: '#FFFAE6',
-					subtitle: '#969BA0',
-					danger: '#F24242',
-					lighty: '#e9ecff',
-				}
-			}
-		}
+		customVariables: ['~/styles/vuetify.scss'],
 	},
 })

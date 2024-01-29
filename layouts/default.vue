@@ -3,7 +3,7 @@
 <template>
   <div>
     <AppHeader />
-    <v-container class="mt-10 pt-10">
+    <v-container>
 			<slot></slot>
 		</v-container>
     <AppFooter />

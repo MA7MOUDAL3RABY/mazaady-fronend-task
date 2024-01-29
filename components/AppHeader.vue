@@ -62,7 +62,7 @@ const toggleDrawer = () => {
           <NuxtImg src="/assets/avatars/hala_ahmed.svg" alt="John" />
         </v-avatar>
 
-        <v-btn class="gradient-btn mx-4" v-if="!mobile" :to="'/new-product'">
+        <v-btn class="bg-gradient mx-4" v-if="!mobile" :to="'/new-product'">
           <NuxtImg class="app__icon__small" src="/assets/icons/plus.svg" />Add new product
         </v-btn>
         <template v-if="!mobile">
@@ -82,7 +82,7 @@ const toggleDrawer = () => {
             </v-btn>-->
             <!-- <v-divider :color="'success'" inset vertical></v-divider> -->
           </template>
-          <v-btn class="gradient-btn mx-4" :to="'/new-product'">
+          <v-btn class="bg-gradient mx-4" :to="'/new-product'">
             <NuxtImg class="app__icon__small" src="/assets/icons/plus.svg" />Add new product
           </v-btn>
 
