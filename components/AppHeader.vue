@@ -10,11 +10,11 @@ const menuItems = [
   },
   {
     text: "Blog",
-    name: "/blog"
+    url: "/blog"
   },
   {
     text: "Gifts",
-    name: "/gifts"
+    url: "/gifts"
   }
 ];
 const { mobile } = useDisplay();
@@ -38,25 +38,25 @@ const toggleDrawer = () => {
           </NuxtLink>
         </div>
 
-        <v-list v-if="!mobile">
-          <v-list-item v-for="(item, i) in menuItems" :key="i">
-            <v-list-item-title>
+        <div class="app__navbar__menu" v-if="!mobile">
+          <ul class="app__navbar__menu menu__items" v-if="!mobile">
+            <li class="menu__item" v-for="(item, i) in menuItems" :key="i">
               <NuxtLink :to="item.url">{{ item.text }}</NuxtLink>
-            </v-list-item-title>
-          </v-list-item>
-        </v-list>
+            </li>
+          </ul>
+        </div>
 
         <v-spacer></v-spacer>
 
         <v-btn icon>
           <NuxtImg class="app__icon" src="/assets/icons/magnify.svg" />
         </v-btn>
-        <v-divider color="FFEAD2" class="mx-2" inset vertical></v-divider>
+        <v-divider color="FFEAD2" class="d-none d-md-block mx-2" inset vertical></v-divider>
 
         <v-btn icon>
           <NuxtImg class="app__icon" src="/assets/icons/bill.svg" />
         </v-btn>
-        <v-divider color="FFEAD2" class="mx-2" inset vertical></v-divider>
+        <v-divider color="FFEAD2" class="d-none d-md-block mx-2" inset vertical></v-divider>
 
         <v-avatar class="mx-2">
           <NuxtImg src="/assets/avatars/hala_ahmed.svg" alt="John" />
@@ -73,7 +73,7 @@ const toggleDrawer = () => {
           <v-btn class="bold font-18 font-weight-700">EN</v-btn>
         </template>
       </v-app-bar>
-      <v-navigation-drawer v-model="drawer" temporary>
+      <v-navigation-drawer v-model="drawer" temporary v-if="mobile">
         <div class="py-5">
           <template v-if="mobile">
             <v-btn class="bold font-18 font-weight-700 mb-4 mx-4">EN</v-btn>
@@ -86,13 +86,15 @@ const toggleDrawer = () => {
             <NuxtImg class="app__icon__small" src="/assets/icons/plus.svg" />Add new product
           </v-btn>
 
-          <v-divider></v-divider>
+          <v-divider class="my-5"></v-divider>
 
-          <v-list density="compact" nav>
-            <v-list-item v-for="(item, i) in menuItems" :key="i">
-              <NuxtLink :to="item.url">{{item.text}}</NuxtLink>
-            </v-list-item>
-          </v-list>
+          <div class="app__navbar__menu">
+            <ul class="app__navbar__menu menu__items mobile__menu">
+              <li class="menu__item" v-for="(item, i) in menuItems" :key="i">
+                <NuxtLink :to="item.url">{{ item.text }}</NuxtLink>
+              </li>
+            </ul>
+          </div>
         </div>
       </v-navigation-drawer>
     </v-layout>

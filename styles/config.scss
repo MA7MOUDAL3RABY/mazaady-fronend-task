@@ -3,6 +3,7 @@ $colors: (
 	orange: $orange,
 	white: $white,
 	black: $black,
+	gray_3: $gray_3,
 );
 
 $fonts: (
@@ -47,11 +48,11 @@ $opacities: (
 
 @each $name,
 $color in $colors {
-	.text-#{$name} {
+	#{'.text-' + $name} {
 		color: $color;
 	}
 
-	.btn-#{$name} {
+	#{'.btn-' + $name} {
 		background: $color;
 	}
 }

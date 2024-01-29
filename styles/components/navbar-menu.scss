@@ -1,0 +1,76 @@
+.app__navbar__menu {
+	height: 100%;
+	align-items: center;
+
+	.menu__items {
+		margin-inline-start: 30px;
+		display: flex;
+		list-style-type: none;
+		gap: 20px;
+
+		&.mobile__menu {
+			margin: 25px 20px;
+			flex-direction: column;
+			width: 100%;
+			align-items: start;
+		}
+
+		li.menu__item {
+			height: 100%;
+			align-items: end;
+			display: flex;
+
+			a {
+				height: 100%;
+				display: block;
+				color: $gray_3;
+				text-decoration: none;
+				font-size: 18px;
+				font-weight: 400;
+				text-transform: capitalize;
+				text-align: center;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				align-items: center;
+
+				&.router-link-exact-active {
+					color: $razz;
+					font-size: 18px;
+					font-style: normal;
+					font-weight: 700;
+					line-height: 23px;
+					text-transform: capitalize;
+
+					&::before {
+						content: '';
+						display: block;
+					}
+
+					&::after {
+						content: '';
+						display: block;
+						width: 44px;
+						height: 6px;
+						border-radius: 8px 8px 0px 0px;
+						background: $razz;
+					}
+				}
+
+				&::before {
+					content: '';
+					display: block;
+				}
+
+				&::after {
+					content: '';
+					display: block;
+					width: 44px;
+					height: 6px;
+
+				}
+
+			}
+		}
+	}
+}
