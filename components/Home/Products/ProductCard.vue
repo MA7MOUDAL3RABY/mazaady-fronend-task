@@ -6,7 +6,7 @@
           <!-- Side Image -->
           <div>
             <img
-              class="xs:w-100 md:w-200"
+              class="xs:w-[87px] md:w-[145px]"
               :src="`assets/products/${product.image}`"
               alt="product image"
             />
@@ -21,7 +21,7 @@
                 class="text-gray_1 font-18 font-weight-700"
               >{{ product.price }} EGP</span>
             </div>
-            <div class="md:flex-row align-center">
+            <div class="md:flex gap-3 align-center">
               <span class="text-gray_1 font-18 font-weight-400">Lot starts in</span>
               <div class="flex gap-4">
                 <v-chip color="orange" rounded="18" size="large">{{ product.lotDate.days }} days</v-chip>

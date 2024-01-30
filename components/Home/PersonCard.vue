@@ -2,7 +2,7 @@
 <template>
   <v-card>
     <div class="pa-5">
-      <NuxtImg src="/assets/avatars/hala_ahmed.svg" alt="hala_ahmed" />
+      <NuxtImg class="w-[100px] h-[100px]" src="/assets/avatars/hala_ahmed.svg" alt="hala_ahmed" />
       <Suspense>
         <h3 class="font-24 font-weight-700">{{profile.name}}</h3>
       </Suspense>
