@@ -1,35 +1,73 @@
 export const useProductsStore = defineStore('productsStore', {
+
 	state: () => ({
-		avatar: '/assets/avatars/hala_ahmed.svg',
-		name: 'Hala Ahmed',
-		following: true,
-		bio: 'I am Hala Ahmed, I am the owner of the local brand called Beauty which is for Mackeup and Skin Care.',
-		score: [
+		products: [
 			{
-				value: "5",
-				iconPath: "/assets/icons/following.svg",
-				title: "Following",
-				key: "following"
+				image: "1.png",
+				title: "Six-piece clothing set (blouse - pants - hat and ...",
+				price: "1000",
+				liked: false,
+				lotDate: {
+					dayes: 3,
+					hours: 10,
+					minutes: 49
+				},
+				offer: {
+					lable: "Live auction",
+					type: 1
+				}
 			},
 			{
-				value: "20",
-				iconPath: "/assets/icons/followers.svg",
-				title: "Followers",
-				key: "followers"
+				image: "2.png",
+				title: "Six-piece clothing set (blouse - pants - hat and ...",
+				price: "1500",
+				liked: true,
+				lotDate: {
+					dayes: 3,
+					hours: 10,
+					minutes: 49
+				},
+				offer: {
+					lable: "Live auction",
+					type: 1
+				}
 			},
 			{
-				value: "4.2",
-				sub: "15",
-				iconPath: "/assets/icons/rate.svg",
-				title: "Rate",
-				key: "rate"
+				image: "3.png",
+				title: "Six-piece clothing set (blouse - pants - hat and ...",
+				price: "300",
+				liked: false,
+				lotDate: {
+					dayes: 3,
+					hours: 10,
+					minutes: 49
+				},
+				offer: {
+					lable: "hot sale",
+					type: 2
+				}
+			},
+			{
+				image: "4.png",
+				title: "Six-piece clothing set (blouse - pants - hat and ...",
+				price: "1200",
+				liked: false,
+				lotDate: {
+					dayes: 3,
+					hours: 10,
+					minutes: 49
+				},
+				offer: {
+					lable: "hot sale",
+					type: 2
+				}
 			}
 		]
-
 	}),
 	actions: {
 		follow() {
 			alert('clicked');
 		}
 	}
+
 })

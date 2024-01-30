@@ -2,9 +2,11 @@
 export default defineNuxtConfig({
 	devtools: { enabled: true },
 	modules: [
-		'@nuxt/image',
+		"@nuxt/image",
+		"@pinia/nuxt",
 		// "@nuxtjs/i18n",
-		"@pinia/nuxt"
+		"@nuxt/content",
+		"@nuxtjs/tailwindcss"
 	],
 	pinia: {
 		storesDirs: ['./stores/**'],
@@ -29,7 +31,5 @@ export default defineNuxtConfig({
 	// 	locales: ['en', 'ar'],
 	// 	defaultLocale: 'en',
 	// },
-	vuetify: {
-		customVariables: ['~/styles/vuetify.scss'],
-	},
+
 })

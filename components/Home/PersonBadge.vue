@@ -5,7 +5,7 @@
         <NuxtImg class="app__icon" :src="item.iconPath" alt="icon" />
       </template>
       <div class="content ms-2">
-        <span class="font-14 font-weight-700 text-dark_1">
+        <span class="font-12 font-weight-700 text-dark_1">
           {{ item.value }}
           <span v-if="item.sub" class="text-gray_3">( {{ item.sub }} )</span>
         </span>
