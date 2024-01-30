@@ -8,7 +8,7 @@ export const useProductsStore = defineStore('productsStore', {
 				price: "1000",
 				liked: false,
 				lotDate: {
-					dayes: 3,
+					days: 3,
 					hours: 10,
 					minutes: 49
 				},
@@ -23,8 +23,8 @@ export const useProductsStore = defineStore('productsStore', {
 				price: "1500",
 				liked: true,
 				lotDate: {
-					dayes: 3,
-					hours: 10,
+					days: 5,
+					hours: 12,
 					minutes: 49
 				},
 				offer: {
@@ -38,9 +38,9 @@ export const useProductsStore = defineStore('productsStore', {
 				price: "300",
 				liked: false,
 				lotDate: {
-					dayes: 3,
-					hours: 10,
-					minutes: 49
+					days: 18,
+					hours: 12,
+					minutes: 43
 				},
 				offer: {
 					lable: "hot sale",
@@ -53,9 +53,9 @@ export const useProductsStore = defineStore('productsStore', {
 				price: "1200",
 				liked: false,
 				lotDate: {
-					dayes: 3,
-					hours: 10,
-					minutes: 49
+					days: 3,
+					hours: 14,
+					minutes: 32
 				},
 				offer: {
 					lable: "hot sale",

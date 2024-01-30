@@ -1,0 +1,20 @@
+{
+	"welcome": "Welcome",
+	"add_new_product": "Add new product",
+	"follow": "follow",
+	"products": "Products",
+	"add_review": "Add Review",
+	"following": "following",
+	"six_piece_clothing_set": "Six-piece clothing set",
+	"Jeep_Car": "Jeep Car, new, used for only one time",
+	"menu": {
+		"home": "Home",
+		"blog": "Blog",
+		"gifts": "Gifts"
+	},
+	"articles": "Articles",
+	"FollowUsOnMazaady": "Follow Us On Mazaady",
+	"reviews": "Reviews",
+	"DownloadQR": "Download the QR code or share it with your friends.",
+	"QRCode": "QR Code"
+}

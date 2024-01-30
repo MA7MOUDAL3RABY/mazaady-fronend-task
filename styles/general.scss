@@ -3,9 +3,16 @@ body {
 	padding-top: 100px;
 }
 
-* {
-	font-family: 'Nunito Sans', sans-serif;
+.app-content {
+	&.ltr {
+		font-family: 'Nunito Sans', sans-serif;
+	}
+
+	&.rtl {
+		font-family: 'Cairo', sans-serif;
+	}
 }
+
 
 .app {
 	&__logo {

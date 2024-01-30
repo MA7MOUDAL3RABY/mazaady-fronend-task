@@ -4,7 +4,7 @@ export default defineNuxtConfig({
 	modules: [
 		"@nuxt/image",
 		"@pinia/nuxt",
-		// "@nuxtjs/i18n",
+		"@nuxtjs/i18n",
 		"@nuxt/content",
 		"@nuxtjs/tailwindcss"
 	],
@@ -26,10 +26,20 @@ export default defineNuxtConfig({
 			'process.env.DEBUG': false,
 		},
 	},
-	// i18n: {
-	// 	vueI18n: '~/plugins/i18n.config.js',
-	// 	locales: ['en', 'ar'],
-	// 	defaultLocale: 'en',
-	// },
+	i18n: {
+		vueI18n: '~/plugins/i18n.js',
+		locales: [
+			{
+				code: 'en',
+				iso: 'en-US'
+			},
+
+			{
+				code: 'ar',
+				iso: 'ar-EG'
+			}
+		],
+		defaultLocale: 'en',
+	},
 
 })

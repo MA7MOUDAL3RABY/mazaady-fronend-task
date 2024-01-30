@@ -17,7 +17,7 @@
       <v-btn
         class="bg-gradient w-100"
         @click="follow()"
-      >{{profile.following ? 'following' : 'follow'}}</v-btn>
+      >{{profile.following ? $t('following') : $t('follow')}}</v-btn>
     </div>
   </v-card>
 </template>
@@ -26,7 +26,6 @@
 import { useProfileStore } from "~/stores/profileStore";
 const profile = useProfileStore();
 function follow() {
-	console.log('lllllllll');
   // return profile.$patch({});
 }
 </script>

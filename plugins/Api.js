@@ -1,4 +1,9 @@
-export default defineNuxtPlugin((app) => {
+import {
+	useGeneralStore
+} from '../stores/general.ts';
+
+const general = useGeneralStore();
+export default defineNuxtPlugin((app, general) => {
 	app.provide('Api', async function Api(
 		method = 'get',
 		uri,
@@ -6,17 +11,14 @@ export default defineNuxtPlugin((app) => {
 		successCallback = null,
 		failCallback = null,
 	) {
-		app.store.commit('utils/load', true);
+		general.load(true);
 		try {
 			const response = await app.$axios[method](uri, payload);
-			if (response.data.message && method !== 'get') {
-				app.$alert("success", response.data.message);
-			}
 			if (successCallback) {
 				successCallback(response);
 			}
 		} catch (error) {
-			app.store.commit('utils/load', false);
+			general.load(false);
 			console.log('================== Error ==================');
 			console.log(error.response);
 			console.log('================== Error ==================');
@@ -27,7 +29,7 @@ export default defineNuxtPlugin((app) => {
 				failCallback(error.response);
 			}
 		} finally {
-			app.store.commit('utils/load', false);
+			general.load(false);
 		}
 	});
 });

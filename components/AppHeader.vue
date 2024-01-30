@@ -1,23 +1,30 @@
 <script setup>
 import { ref } from "vue";
-import { useDisplay } from "vuetify";
+import { useDisplay, useLocale } from "vuetify";
+const { mobile } = useDisplay();
+const { locale, setLocale } = useI18n();
+const { current } = useLocale();
+
+function changeLocale(locale) {
+  current.value = locale;
+  setLocale(locale);
+}
 
 const drawer = ref(false);
 const menuItems = [
   {
     url: "/",
-    text: "Home"
+    text: "menu.home"
   },
   {
-    text: "Blog",
+    text: "menu.blog",
     url: "/blog"
   },
   {
-    text: "Gifts",
+    text: "menu.gifts",
     url: "/gifts"
   }
 ];
-const { mobile } = useDisplay();
 const toggleDrawer = () => {
   drawer.value = !drawer.value;
 };
@@ -41,7 +48,7 @@ const toggleDrawer = () => {
         <div class="app__navbar__menu" v-if="!mobile">
           <ul class="app__navbar__menu menu__items" v-if="!mobile">
             <li class="menu__item" v-for="(item, i) in menuItems" :key="i">
-              <NuxtLink :to="item.url">{{ item.text }}</NuxtLink>
+              <NuxtLink :to="item.url">{{ $t(item.text) }}</NuxtLink>
             </li>
           </ul>
         </div>
@@ -63,27 +70,41 @@ const toggleDrawer = () => {
         </v-avatar>
 
         <v-btn class="bg-gradient mx-4" v-if="!mobile" :to="'/new-product'">
-          <NuxtImg class="app__icon__small" src="/assets/icons/plus.svg" />Add new product
+          <NuxtImg class="app__icon__small" src="/assets/icons/plus.svg" />
+          {{ $t('add_new_product') }}
         </v-btn>
         <template v-if="!mobile">
-          <v-btn icon>
-            <NuxtImg class="mx-4 app__icon__small" src="/assets/icons/lang.svg" />
-          </v-btn>
-          <v-divider :color="'success'" inset vertical></v-divider>
-          <v-btn class="bold font-18 font-weight-700">EN</v-btn>
+          <NuxtImg class="mx-4 app__icon__small" src="/assets/icons/lang.svg" />
+          <v-divider inset vertical></v-divider>
+          <v-btn
+            class="bold font-18 font-weight-700 mx-4"
+            v-if="locale == 'ar'"
+            @click="changeLocale('en')"
+          >En</v-btn>
+          <v-btn
+            class="font-18 font-weight-700 mx-4"
+            v-if="locale == 'en'"
+            @click="changeLocale('ar')"
+          >غ</v-btn>
         </template>
       </v-app-bar>
       <v-navigation-drawer v-model="drawer" temporary v-if="mobile">
         <div class="py-5">
           <template v-if="mobile">
-            <v-btn class="bold font-18 font-weight-700 mb-4 mx-4">EN</v-btn>
-            <!-- <v-btn icon>
-              <NuxtImg class="mx-4 app__icon__small" src="/assets/icons/lang.svg" />
-            </v-btn>-->
-            <!-- <v-divider :color="'success'" inset vertical></v-divider> -->
+            <v-btn
+              class="bold font-18 font-weight-700 mb-4 mx-4"
+              v-if="locale == 'ar'"
+              @click="changeLocale('en')"
+            >English</v-btn>
+            <v-btn
+              class="bold font-18 font-weight-700 mb-4 mx-4"
+              v-if="locale == 'en'"
+              @click="changeLocale('ar')"
+            >Arabic</v-btn>
           </template>
           <v-btn class="bg-gradient mx-4" :to="'/new-product'">
-            <NuxtImg class="app__icon__small" src="/assets/icons/plus.svg" />Add new product
+            <NuxtImg class="app__icon__small" src="/assets/icons/plus.svg" />
+            {{$t('add_new_product')}}
           </v-btn>
 
           <v-divider class="my-5"></v-divider>
@@ -91,7 +112,7 @@ const toggleDrawer = () => {
           <div class="app__navbar__menu">
             <ul class="app__navbar__menu menu__items mobile__menu">
               <li class="menu__item" v-for="(item, i) in menuItems" :key="i">
-                <NuxtLink :to="item.url">{{ item.text }}</NuxtLink>
+                <NuxtLink :to="item.url">{{ $t(item.text) }}</NuxtLink>
               </li>
             </ul>
           </div>
