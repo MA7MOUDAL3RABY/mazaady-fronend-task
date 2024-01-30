@@ -3,9 +3,8 @@
   <v-card>
     <div class="pa-5">
       <NuxtImg class="w-[100px] h-[100px]" src="/assets/avatars/hala_ahmed.svg" alt="hala_ahmed" />
-      <Suspense>
-        <h3 class="font-24 font-weight-700">{{profile.name}}</h3>
-      </Suspense>
+
+      <h3 class="font-24 font-weight-700">{{profile.name}}</h3>
       <p class="font-14 font-weight-400">{{profile.bio}}</p>
     </div>
     <div class="px-5">

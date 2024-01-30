@@ -6,6 +6,6 @@
     <v-container>
 			<slot></slot>
 		</v-container>
-    <AppFooter />
+    <!-- <AppFooter /> -->
   </div>
 </template>

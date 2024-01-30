@@ -1,85 +1,79 @@
 <template>
   <div>
-    <v-autocomplete
-      v-model="friends"
-      :disabled="isUpdating"
-      :items="people"
-      chips
-      closable-chips
-      color="blue-grey-lighten-2"
-      item-title="name"
-      item-value="name"
-      label="Select"
-      multiple
-    >
-      <template v-slot:chip="{ props, item }">
-        <v-chip v-bind="props" :prepend-avatar="item.raw.avatar" :text="item.raw.name"></v-chip>
-      </template>
+    <div class="sm:w-100 md:w-[500px] mx-auto">
+      <v-autocomplete
+        v-model="mainCategory"
+        :disabled="loading"
+        :items="categories"
+        color="orange"
+        item-title="name"
+        item-value
+        return-object
+        label="Select Category"
+        :loading="loading"
+        @update:menu="subCategory = null"
+      >
+        <template v-slot:item="{ props, item }">
+          <v-list-item
+            v-bind="props"
+            :prepend-avatar="item.raw.image"
+            :title="item.raw.name"
+            :subtitle="item.raw.group"
+          ></v-list-item>
+        </template>
+      </v-autocomplete>
 
-      <template v-slot:item="{ props, item }">
-        <v-list-item
-          v-bind="props"
-          :prepend-avatar="item.raw.avatar"
-          :title="item.raw.name"
-          :subtitle="item.raw.group"
-        ></v-list-item>
-      </template>
-    </v-autocomplete>
+      <v-autocomplete
+        v-model="subCategory"
+        :disabled="!mainCategory"
+        :items="mainCategory?.children"
+        color="orange"
+        item-title="name"
+        item-value="id"
+        label="Select SubCategory"
+      >
+        <template v-slot:item="{ props, item }">
+          <v-list-item
+            v-bind="props"
+            :prepend-avatar="item.raw.image"
+            :title="item.raw.name"
+            :subtitle="item.raw.group"
+          ></v-list-item>
+        </template>
+      </v-autocomplete>
+    </div>
+    <pre>
+			{{subCategory}}
+		</pre>
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    const srcs = {
-      1: "https://cdn.vuetifyjs.com/images/lists/1.jpg",
-      2: "https://cdn.vuetifyjs.com/images/lists/2.jpg",
-      3: "https://cdn.vuetifyjs.com/images/lists/3.jpg",
-      4: "https://cdn.vuetifyjs.com/images/lists/4.jpg",
-      5: "https://cdn.vuetifyjs.com/images/lists/5.jpg"
-    };
+<script setup>
+import { useCategoriesStore } from "~/stores/categoriesStore";
+import { ref, computed } from "vue";
+const { getAllCats } = useCategoriesStore();
 
-    return {
-      autoUpdate: true,
-      friends: ["Sandra Adams", "Britta Holt"],
-      isUpdating: false,
-      name: "Midnight Crew",
-      people: [
-        // TODO: https://github.com/vuetifyjs/vuetify/issues/15721
-        // { header: 'Group 1' },
-        { name: "Sandra Adams", group: "Group 1", avatar: srcs[1] },
-        { name: "Ali Connors", group: "Group 1", avatar: srcs[2] },
-        { name: "Trevor Hansen", group: "Group 1", avatar: srcs[3] },
-        { name: "Tucker Smith", group: "Group 1", avatar: srcs[2] },
-        // { divider: true },
-        // { header: 'Group 2' },
-        { name: "Britta Holt", group: "Group 2", avatar: srcs[4] },
-        { name: "Jane Smith ", group: "Group 2", avatar: srcs[5] },
-        { name: "John Smith", group: "Group 2", avatar: srcs[1] },
-        { name: "Sandra Williams", group: "Group 2", avatar: srcs[3] }
-      ],
-      title: "The summer breeze",
-      timeout: null
-    };
-  },
+// ------------------------- Data ------------------------- //
+const loading = ref();
+const categories = ref([]);
+const subCategories = ref([]);
+const mainCategory = ref(null);
+const subCategory = ref(null);
+// ------------------------- Data ------------------------- //
 
-  watch: {
-    isUpdating(val) {
-      clearTimeout(this.timeout);
+// ------------------------- computed ------------------------- //
+// const subCategories = computed(mainCategory =>
+//   mainCategory.length ? mainCategory.children : []
+// );
+// ------------------------- computed ------------------------- //
 
-      if (val) {
-        this.timeout = setTimeout(() => (this.isUpdating = false), 3000);
-      }
-    }
-  },
+// ------------------------- Methods ------------------------- //
+getAllCats(res => {
+  loading.value = false;
+  categories.value = res;
+});
 
-  methods: {
-    remove(item) {
-      const index = this.friends.indexOf(item.name);
-      if (index >= 0) this.friends.splice(index, 1);
-    }
-  }
-};
+// ------------------------- Methods ------------------------- //
 </script>
 
 <style>
