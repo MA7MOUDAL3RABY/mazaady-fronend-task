@@ -33,7 +33,7 @@
               </div>
             </div>
           </div>
-          <div class="col">
+          <div>
             <h3
               class="block mt-1 text-lg leading-tight font-medium text-black hover:underline"
             >{{product.title}}</h3>
@@ -45,13 +45,13 @@
             </div>
             <div class="md:flex gap-3 align-center">
               <span class="text-gray_1 font-18 font-weight-400">Lot starts in</span>
-              <div class="flex gap-4">
-                <v-chip color="orange" rounded="18" size="large">{{ product.lotDate.days }} days</v-chip>
-                <v-chip color="orange" rounded="18" size="large">{{ product.lotDate.hours }} Hours</v-chip>
+              <div class="flex gap-1 md:gap-4">
+                <v-chip color="orange" rounded="18" :size="mobile? 'small': 'large'">{{ product.lotDate.days }} days</v-chip>
+                <v-chip color="orange" rounded="18" :size="mobile? 'small': 'large'">{{ product.lotDate.hours }} Hours</v-chip>
                 <v-chip
                   color="orange"
                   rounded="18"
-                  size="large"
+                  :size="mobile ? 'small': 'large'"
                 >{{ product.lotDate.minutes }} Minutes</v-chip>
               </div>
             </div>
