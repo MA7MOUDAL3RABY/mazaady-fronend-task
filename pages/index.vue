@@ -28,7 +28,7 @@ const filters = ["products", "articles", "reviews"];
                   :class="{'active': item == filter}"
                 >{{ $t(item) }}</span>
               </div>
-              <div class="md:static fixed bottom-5">
+              <div class="md:static fixed bottom-5 z-50">
                 <v-btn class="bg-gradient md:mx-4" :to="'/new-product'">
                   <NuxtImg class="app__icon__small" src="/assets/icons/plus.svg" />
                   {{$t('add_review')}}

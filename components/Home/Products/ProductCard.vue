@@ -8,7 +8,7 @@
             <div class="relative rounded-[33px] overflow-hidden">
               <div
                 v-if="mobile"
-                class="absolute ma-3 bg-white p-1 rounded-circle sm:w-[87px] md:w-[145px]"
+                class="absolute ma-3 bg-white p-1 rounded-circle sm:w-[87px] md:w-[145px] z-40"
                 @click="product.liked = !product.liked"
               >
                 <img
@@ -85,7 +85,7 @@ const { product } = defineProps(["product"]);
 .image-container {
   @media all and (max-width: 500px) {
     width: 87px;
-    margin-inline-end: 6px;
+    margin-inline-end: 8px;
   }
 }
 </style>
