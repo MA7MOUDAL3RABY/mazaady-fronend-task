@@ -2,35 +2,38 @@
   <div class="md:mx-2">
     <div class="d-flex my-5">
       <div class="bg-white rounded-xl overflow-hidden w-100">
-        <div class="flex sm:flex-column md:flex-row align-start md:gap-4">
+        <div class="flex md:align-start md:gap-4">
           <!-- Side Image -->
-          <div class="relative rounded-[33px] overflow-hidden sm:w-[87px] md:w-[145px]">
-            <div
-              v-if="mobile"
-              class="sm:fixed sm:top-3 md:static"
-              @click="product.liked = !product.liked"
-            >
-              <img class="w-[24px]" v-if="product.liked" src="/assets/icons/red_heart.svg" alt="like" />
-              <img class="w-[24px]" v-else src="/assets/icons/blank_heart.svg" alt="like" />
-            </div>
-            <img
-              class="w-[100%]"
-              :src="`/assets/products/${product.image}`"
-              alt="product image"
-            />
-            <div class="absolute bottom-0 w-[100%] flex align-center justify-end">
+          <div class="flex-none sm:mx-2 md:mx-1 image-container">
+            <div class="relative rounded-[33px] overflow-hidden">
               <div
-                class="h-[37px] font-12 text-white text-center w-[114px] pt-2"
-                :class="{
+                v-if="mobile"
+                class="absolute ma-3 bg-white p-1 rounded-circle sm:w-[87px] md:w-[145px]"
+                @click="product.liked = !product.liked"
+              >
+                <img
+                  class="w-[24px]"
+                  v-if="product.liked"
+                  src="/assets/icons/red_heart.svg"
+                  alt="like"
+                />
+                <img class="w-[24px]" v-else src="/assets/icons/blank_heart.svg" alt="like" />
+              </div>
+              <img class="w-[100%]" :src="`/assets/products/${product.image}`" alt="product image" />
+              <div class="absolute bottom-0 w-[100%] flex align-center justify-end">
+                <div
+                  class="h-[37px] font-12 text-white text-center w-[114px] pt-2"
+                  :class="{
 								'rounded-tl-[33px]': locale == 'en',
 								'rounded-tr-[33px]': locale == 'ar',
 								'bg-razz': product.offer.type == 1,
 								'bg-orange': product.offer.type == 2
 								}"
-              >{{ product.offer.lable }}</div>
+                >{{ product.offer.lable }}</div>
+              </div>
             </div>
           </div>
-          <div>
+          <div class="col">
             <h3
               class="block mt-1 text-lg leading-tight font-medium text-black hover:underline"
             >{{product.title}}</h3>
@@ -78,5 +81,11 @@ const { product } = defineProps(["product"]);
 .badge {
   height: 59px !important;
   border-radius: 18px;
+}
+.image-container {
+  @media all and (max-width: 500px) {
+    width: 87px;
+    margin-inline-end: 6px;
+  }
 }
 </style>
