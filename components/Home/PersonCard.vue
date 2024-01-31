@@ -8,7 +8,7 @@
       <p class="font-14 font-weight-400">{{profile.bio}}</p>
     </div>
     <div class="px-5">
-      <div class="d-flex justify-space-between align-items-center">
+      <div class="flex justify-between align-center gap-2">
         <HomePersonBadge v-for="(item, i) in profile.score" :item="item" :key="i"></HomePersonBadge>
       </div>
     </div>

@@ -18,8 +18,8 @@ const filters = ["products", "articles", "reviews"];
       <v-col cols="12" sm="7" lg="8">
         <v-card>
           <div class="p-5">
-            <div class="flex justify-space-between my-3">
-              <div class="flex gap-2">
+            <div class="flex md:flex-row gap-4 justify-between my-3">
+              <div class="flex gap-1">
                 <span
                   v-for="(item, i) in filters"
                   :key="i"
@@ -28,8 +28,8 @@ const filters = ["products", "articles", "reviews"];
                   :class="{'active': item == filter}"
                 >{{ $t(item) }}</span>
               </div>
-              <div>
-                <v-btn class="bg-gradient mx-4" :to="'/new-product'">
+              <div class="md:static fixed bottom-5">
+                <v-btn class="bg-gradient md:mx-4" :to="'/new-product'">
                   <NuxtImg class="app__icon__small" src="/assets/icons/plus.svg" />
                   {{$t('add_review')}}
                 </v-btn>
@@ -52,7 +52,6 @@ const filters = ["products", "articles", "reviews"];
   border-radius: 14px;
   border: 1px solid #e0e0e0;
   background: #ffffff;
-  width: 108px;
   padding: 8px;
   color: #828282;
   text-align: center;

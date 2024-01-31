@@ -74,7 +74,7 @@ const toggleDrawer = () => {
           {{ $t('add_new_product') }}
         </v-btn>
         <template v-if="!mobile">
-          <NuxtImg class="mx-4 app__icon__small" src="/assets/icons/lang.svg" />
+          <img class="mx-4 app__icon__small" src="/assets/icons/lang.svg" />
           <v-divider inset vertical></v-divider>
           <v-btn
             class="bold font-18 font-weight-700 mx-4"

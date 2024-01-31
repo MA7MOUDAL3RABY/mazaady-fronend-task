@@ -1,24 +1,24 @@
 <template>
-  <div class="mx-2">
+  <div class="md:mx-2">
     <div class="d-flex my-5">
       <div class="bg-white rounded-xl overflow-hidden w-100">
         <div class="flex align-start gap-4">
           <!-- Side Image -->
-          <div class="position-relative rounded-[33px] overflow-hidden">
+          <div class="relative rounded-[33px] overflow-hidden w-[87px] md:w-[145px]">
             <div
               v-if="mobile"
-              class="position-absolute top-0 left-0"
+              class="sm:absolute top-0 left-0 md:static z-5"
               @click="product.liked = !product.liked"
             >
-              <img class="w-20 sm:w-5" v-if="product.liked" src="/assets/icons/red_heart.svg" alt />
-              <img class="w-20 sm:w-5" v-else src="/assets/icons/blank_heart.svg" alt />
+              <img class="w-[24px]" v-if="product.liked" src="/assets/icons/red_heart.svg" alt />
+              <img class="w-[24px]" v-else src="/assets/icons/blank_heart.svg" alt />
             </div>
             <img
-              class="xs:w-[87px] md:w-[145px]"
-              :src="`assets/products/${product.image}`"
+              class="w-[100%]"
+              :src="`/assets/products/${product.image}`"
               alt="product image"
             />
-            <div class="position-absolute bottom-0 w-[100%] flex align-center justify-end">
+            <div class="absolute bottom-0 w-[100%] flex align-center justify-end">
               <div
                 class="h-[37px] font-12 text-white text-center w-[114px] pt-2"
                 :class="{
