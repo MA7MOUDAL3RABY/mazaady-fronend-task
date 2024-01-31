@@ -89,7 +89,7 @@ const toggleDrawer = () => {
         </template>
       </v-app-bar>
       <v-navigation-drawer v-model="drawer" temporary v-if="mobile">
-        <div class="py-5">
+        <div class="py-5" :dir="locale == 'ar' ? 'rtl': 'ltr'">
           <template v-if="mobile">
             <v-btn
               class="bold font-18 font-weight-700 mb-4 mx-4"

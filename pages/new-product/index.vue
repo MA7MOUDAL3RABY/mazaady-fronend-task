@@ -9,7 +9,7 @@
         item-title="name"
         item-value
         return-object
-        label="Select Category"
+        :label="$t('SelectCategory')"
         :loading="loading"
         @update:menu="subCategoryID = null"
       >
@@ -30,7 +30,7 @@
         color="orange"
         item-title="name"
         item-value="id"
-        label="Select SubCategory"
+        :label="$t('SelectSubCategory')"
         @update:menu="subCategorySelected"
       >
         <template v-slot:item="{ props, item }">
@@ -68,7 +68,7 @@
       </div>
     </div>
     <div class="flex justify-center">
-      <v-btn class="bg-gradient" @click="submit">Submit</v-btn>
+      <v-btn class="bg-gradient" @click="submit">{{$t('Submit')}}</v-btn>
     </div>
     <div class="my-10"></div>
     <v-alert v-if="formData" type="success" variant="outlined">

@@ -5,19 +5,19 @@
         <div class="flex md:align-start md:gap-4">
           <!-- Side Image -->
           <div class="flex-none sm:mx-2 md:mx-1 image-container">
-            <div class="relative rounded-[33px] overflow-hidden">
+            <div class="relative rounded-[25px] md:rounded-[33px] overflow-hidden">
               <div
                 v-if="mobile"
                 class="absolute ma-3 bg-white p-1 rounded-circle sm:w-[87px] md:w-[145px] z-40"
                 @click="product.liked = !product.liked"
               >
                 <img
-                  class="w-[24px]"
+                  class="w-[20px]"
                   v-if="product.liked"
                   src="/assets/icons/red_heart.svg"
                   alt="like"
                 />
-                <img class="w-[24px]" v-else src="/assets/icons/blank_heart.svg" alt="like" />
+                <img class="w-[20px]" v-else src="/assets/icons/blank_heart.svg" alt="like" />
               </div>
               <img class="w-[100%]" :src="`/assets/products/${product.image}`" alt="product image" />
               <div class="absolute bottom-0 w-[100%] flex align-center justify-end">
@@ -38,21 +38,21 @@
               class="block mt-1 text-lg leading-tight font-medium text-black hover:underline"
             >{{product.title}}</h3>
             <div class="mt-2 text-gray-500 font-18">
-              Starting price
+              {{$t('Startingprice')}}
               <span
                 class="text-gray_1 font-18 font-weight-700"
-              >{{ product.price }} EGP</span>
+              >{{ product.price }} {{$t('EGP')}}</span>
             </div>
             <div class="md:flex gap-3 align-center">
-              <span class="text-gray_1 font-18 font-weight-400">Lot starts in</span>
+              <span class="text-gray_1 font-18 font-weight-400">{{$t('Lotstartsin')}}</span>
               <div class="flex gap-1 md:gap-4">
-                <v-chip color="orange" rounded="18" :size="mobile? 'small': 'large'">{{ product.lotDate.days }} days</v-chip>
-                <v-chip color="orange" rounded="18" :size="mobile? 'small': 'large'">{{ product.lotDate.hours }} Hours</v-chip>
+                <v-chip color="orange" rounded="18" :size="mobile? 'small': 'large'">{{ product.lotDate.days }} {{$t('days')}}</v-chip>
+                <v-chip color="orange" rounded="18" :size="mobile? 'small': 'large'">{{ product.lotDate.hours }} {{$t('Hours')}}</v-chip>
                 <v-chip
                   color="orange"
                   rounded="18"
                   :size="mobile ? 'small': 'large'"
-                >{{ product.lotDate.minutes }} Minutes</v-chip>
+                >{{ product.lotDate.minutes }} {{$t('Minutes')}}</v-chip>
               </div>
             </div>
           </div>

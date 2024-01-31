@@ -1,9 +1,9 @@
 export const useProfileStore = defineStore('profileStore', {
 	state: () => ({
 		avatar: '/assets/avatars/hala_ahmed.svg',
-		name: 'Hala Ahmed',
+		name: 'userName',
 		following: true,
-		bio: 'I am Hala Ahmed, I am the owner of the local brand called Beauty which is for Mackeup and Skin Care.',
+		bio: 'userBio',
 		score: [
 			{
 				value: "5",

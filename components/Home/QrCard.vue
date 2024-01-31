@@ -35,7 +35,7 @@
             class="d-flex flex-column align-center justify-content-center bg-white v-btn--rounded py-5"
           >
             <NuxtImg width="100" src="/assets/logo.svg" alt="icon" />
-            <h3 class="my-2">{{profile.name}}</h3>
+            <h3 class="my-2">{{$t(profile.name)}}</h3>
             <qr-code :value="'https://mazaady.com'" :size="100" level="H" />
             <h5 class="my-2 font-14">{{ $t('FollowUsOnMazaady')}}</h5>
           </div>

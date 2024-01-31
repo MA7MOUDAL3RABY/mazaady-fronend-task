@@ -17,7 +17,7 @@ const filters = ["products", "articles", "reviews"];
       </v-col>
       <v-col cols="12" sm="7" lg="8">
         <v-card>
-          <div class="p-5">
+          <div class="p-2 md:p-5">
             <div class="flex md:flex-row gap-4 justify-between my-3">
               <div class="flex gap-1">
                 <span
@@ -37,7 +37,10 @@ const filters = ["products", "articles", "reviews"];
             </div>
             <h3 class="text-[32px] font-weight-700 text-[#333333] flex align-center gap-3">
               {{ $t('products') }}
-              <span v-if="products.length" class="text-gray_3 text-[14px]">({{ products.length }})</span>
+              <span
+                v-if="products.length"
+                class="text-gray_3 text-[14px]"
+              >({{ products.length }})</span>
             </h3>
             <HomeProductsProductCard v-for="(product, i) in products" :key="i" :product="product"></HomeProductsProductCard>
           </div>

@@ -4,8 +4,8 @@
     <div class="pa-5">
       <NuxtImg class="w-[100px] h-[100px]" src="/assets/avatars/hala_ahmed.svg" alt="hala_ahmed" />
 
-      <h3 class="font-24 font-weight-700">{{profile.name}}</h3>
-      <p class="font-14 font-weight-400">{{profile.bio}}</p>
+      <h3 class="font-24 font-weight-700">{{$t(profile.name)}}</h3>
+      <p class="font-14 font-weight-400">{{$t(profile.bio)}}</p>
     </div>
     <div class="px-5">
       <div class="flex justify-between align-center gap-2">
