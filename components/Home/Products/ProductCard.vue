@@ -2,16 +2,16 @@
   <div class="md:mx-2">
     <div class="d-flex my-5">
       <div class="bg-white rounded-xl overflow-hidden w-100">
-        <div class="flex align-start gap-4">
+        <div class="flex sm:flex-column md:flex-row align-start md:gap-4">
           <!-- Side Image -->
-          <div class="relative rounded-[33px] overflow-hidden w-[87px] md:w-[145px]">
+          <div class="relative rounded-[33px] overflow-hidden sm:w-[87px] md:w-[145px]">
             <div
               v-if="mobile"
-              class="sm:absolute top-0 left-0 md:static z-5"
+              class="sm:fixed sm:top-3 md:static"
               @click="product.liked = !product.liked"
             >
-              <img class="w-[24px]" v-if="product.liked" src="/assets/icons/red_heart.svg" alt />
-              <img class="w-[24px]" v-else src="/assets/icons/blank_heart.svg" alt />
+              <img class="w-[24px]" v-if="product.liked" src="/assets/icons/red_heart.svg" alt="like" />
+              <img class="w-[24px]" v-else src="/assets/icons/blank_heart.svg" alt="like" />
             </div>
             <img
               class="w-[100%]"
