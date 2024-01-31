@@ -1,5 +1,3 @@
-// store/categories.js
-
 import { defineStore } from 'pinia';
 
 export const useCategoriesStore = defineStore('categoriesStore', {
@@ -12,7 +10,6 @@ export const useCategoriesStore = defineStore('categoriesStore', {
 				method: "GET",
 				headers: {
 					"private-key": "3%o8i}_;3D4bF]G5@22r2)Et1&mLJ4?$@+16",
-					"lang": 'ar'
 				},
 				onResponse({ response }) {
 					callback(response._data.data);

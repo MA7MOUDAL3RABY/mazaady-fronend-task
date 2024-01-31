@@ -9,7 +9,7 @@
           {{ item.value }}
           <span v-if="item.sub" class="text-gray_3">( {{ item.sub }} )</span>
         </span>
-        <h4 class="font-12 font-weight-400">{{ item.title }}</h4>
+        <h4 class="font-12 font-weight-400">{{ $t(item.key) }}</h4>
       </div>
     </v-chip>
   </div>
