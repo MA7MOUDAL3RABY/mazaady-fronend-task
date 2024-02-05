@@ -6,6 +6,7 @@ export default defineNuxtConfig({
 		"@pinia/nuxt",
 		"@nuxtjs/i18n",
 		"@nuxt/content",
+		"@nuxt/test-utils/module",
 		"@nuxtjs/tailwindcss"
 	],
 	pinia: {
@@ -20,6 +21,12 @@ export default defineNuxtConfig({
 	],
 	build: {
 		transpile: ['vuetify'],
+		extend(config, { isDev, isClient }) {
+      // Add a rule to exclude the problematic module from optimization
+      if (isClient) {
+        config.optimization.splitChunks.exclude = [/node_modules\/gauge\/wide-truncate\.js/];
+      }
+    },
 	},
 	vite: {
 		define: {
@@ -30,7 +37,7 @@ export default defineNuxtConfig({
 		detectBrowserLanguage: {
 			useCookie: true,
 			cookieKey: 'i18n_redirected',
-			redirectOn: 'root', 
+			redirectOn: 'root',
 		},
 		strategy: 'no_prefix',
 		vueI18n: '~/plugins/i18n.js',
