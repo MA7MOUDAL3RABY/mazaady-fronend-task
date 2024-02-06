@@ -8,7 +8,7 @@
             <div class="relative rounded-[25px] md:rounded-[33px] overflow-hidden">
               <div
                 v-if="mobile"
-                class="absolute ma-3 bg-white p-1 rounded-circle sm:w-[87px] md:w-[145px] z-40"
+                class="absolute ma-3 bg-white p-1 rounded-circle z-40"
                 @click="product.liked = !product.liked"
               >
                 <img

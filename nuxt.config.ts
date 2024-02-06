@@ -21,12 +21,6 @@ export default defineNuxtConfig({
 	],
 	build: {
 		transpile: ['vuetify'],
-		extend(config, { isDev, isClient }) {
-      // Add a rule to exclude the problematic module from optimization
-      if (isClient) {
-        config.optimization.splitChunks.exclude = [/node_modules\/gauge\/wide-truncate\.js/];
-      }
-    },
 	},
 	vite: {
 		define: {

@@ -11,7 +11,7 @@
         return-object
         :label="$t('SelectCategory')"
         :loading="loading"
-        @update:menu="subCategoryID = null"
+        @update:menu="subCategory = null"
       >
         <template v-slot:item="{ props, item }">
           <v-list-item
@@ -24,12 +24,12 @@
       </v-autocomplete>
 
       <v-autocomplete
-        v-model="subCategoryID"
+        v-model="subCategory"
         :disabled="loading"
         :items="mainCategory?.children"
         color="orange"
         item-title="name"
-        item-value="id"
+        return-object
         :label="$t('SelectSubCategory')"
         @update:menu="subCategorySelected"
       >
@@ -45,7 +45,7 @@
           :details="field.description"
           color="razz"
           item-title="name"
-          item-value="id"
+          item-value="name"
           :label="field.name"
           item-children="child"
         >
@@ -71,9 +71,20 @@
       <v-btn class="bg-gradient" @click="submit">{{$t('Submit')}}</v-btn>
     </div>
     <div class="my-10"></div>
-    <v-alert v-if="formData" type="success" variant="outlined">
-      <pre>{{ formData }}</pre>
-    </v-alert>
+    <v-table v-if="formData">
+      <thead>
+        <tr>
+          <th class="text-left font-weight-700">Name</th>
+          <th class="text-left font-weight-700">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="item in Object.keys(formData)" :key="item.name">
+          <td>{{ item }}</td>
+          <td>{{ formData[item] }}</td>
+        </tr>
+      </tbody>
+    </v-table>
     <div class="my-10"></div>
     <div class="my-10"></div>
     <div class="my-10"></div>
@@ -92,7 +103,7 @@ const loading = ref();
 const categories = ref([]);
 const subCategories = ref([]);
 const mainCategory = ref(null);
-const subCategoryID = ref(null);
+const subCategory = ref(null);
 const categoryFields = ref(null);
 const formData = ref(null);
 const form = ref({
@@ -106,9 +117,9 @@ const form = ref({
 
 // ------------------------- Methods ------------------------- //
 function subCategorySelected() {
-  if (subCategoryID) {
+  if (subCategory) {
     loading.value = true;
-    getProperties(subCategoryID.value, res => {
+    getProperties(subCategory.value.id, res => {
       loading.value = false;
       categoryFields.value = res;
     });
@@ -120,8 +131,8 @@ function selectOther(field) {
 
 function submit() {
   let payload = {
-    mainCategoryID: mainCategory.value.id,
-    subCategoryID: subCategoryID,
+    mainCategory: mainCategory.value.name,
+    subCategory: subCategory.value.name,
     ...form.value.properties.fields
   };
   Object.assign(payload, { ...form.value.properties.others });
