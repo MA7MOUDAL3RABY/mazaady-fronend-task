@@ -131,8 +131,8 @@ function selectOther(field) {
 
 function submit() {
   let payload = {
-    mainCategory: mainCategory.value.name,
-    subCategory: subCategory.value.name,
+    'main-category': mainCategory.value.name,
+    'sub-category': subCategory.value.name,
     ...form.value.properties.fields
   };
   Object.assign(payload, { ...form.value.properties.others });

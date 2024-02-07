@@ -3,7 +3,7 @@
     <div class="pa-5">
       <div class="d-flex align-items-center justify-space-between">
         <h3 class="font-24 font-weight-700 ga-10">{{$t('QRCode')}}</h3>
-        <div class="flex align-items-center gap-4">
+        <div class="flex align-items-center gap-2">
           <NuxtImg class="w-[24px]" src="/assets/icons/show.svg" />
           <NuxtImg class="w-[24px]" src="/assets/icons/share.svg" />
           <NuxtImg class="w-[24px]" src="/assets/icons/download.svg" />
